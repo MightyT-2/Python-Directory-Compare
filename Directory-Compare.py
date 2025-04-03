@@ -1,7 +1,7 @@
 import os
 import json
 
-BASEDIR = "C:\\msys64\\"
+BASEDIR = "C:\\"
 
 def recursive_get(base_dir):
     dictionary = {}
@@ -24,7 +24,7 @@ def recursive_compare(comp1, comp2, base_dir):
         elif os.path.isfile(base_dir + x):
             if x not in comp2:
                 error_string += "\nfile " + base_dir + x + " not in instance 2"
-            elif comp1[x][1] != comp2[x][1]:
+            elif comp1[x] != comp2[x]:
                 error_string += "\nfile " + base_dir + x + " is different: inst1-" + str(comp1[x]) + " inst2-" + str(comp2[x])
     for x in comp2:
         if os.path.isdir(base_dir + x):
